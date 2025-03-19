@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Start screen recording
 const startScreenRecording = async () => {
     const command = `adb shell screenrecord /sdcard/demo.mp4`;
@@ -19,3 +21,9 @@ const stopScreenRecording = async () => {
         console.error(`Error stopping screen recording: ${error}`);
     }
 };
+
+
+module.exports = {
+    startScreenRecording,
+    stopScreenRecording
+}

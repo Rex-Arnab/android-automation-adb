@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Enable Wi-Fi
 const enableWifi = async () => {
     const command = `adb shell svc wifi enable`;
@@ -30,3 +32,9 @@ const checkWifiStatus = async () => {
         console.error(`Error checking Wi-Fi status: ${error}`);
     }
 };
+
+module.exports = {
+    enableWifi,
+    disableWifi,
+    checkWifiStatus
+}

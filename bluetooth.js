@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Enable Bluetooth
 const enableBluetooth = async () => {
     const command = `adb shell am start -a android.bluetooth.adapter.action.REQUEST_ENABLE`;
@@ -30,3 +32,9 @@ const checkBluetoothStatus = async () => {
         console.error(`Error checking Bluetooth status: ${error}`);
     }
 };
+
+module.exports = {
+    enableBluetooth,
+    disableBluetooth,
+    checkBluetoothStatus
+}

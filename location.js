@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Enable Location Services
 const enableLocation = async () => {
     const command = `adb shell settings put secure location_providers_allowed +gps`;
@@ -19,3 +21,8 @@ const disableLocation = async () => {
         console.error(`Error disabling location: ${error}`);
     }
 };
+
+module.exports = {
+    enableLocation,
+    disableLocation
+}

@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Launch an app by its package name
 const launchApp = async (packageName) => {
     const command = `adb shell monkey -p ${packageName} -c android.intent.category.LAUNCHER 1`;
@@ -37,3 +39,9 @@ const isAppInstalled = async (packageName) => {
         return false;
     }
 };
+
+module.exports = {
+    isAppInstalled,
+    closeApp,
+    launchApp
+}

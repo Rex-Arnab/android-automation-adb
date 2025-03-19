@@ -1,3 +1,5 @@
+const { executeAdbCommand } = require("./android");
+
 // Take a screenshot and save it to a specific location on the device
 const takeScreenshot = async (savePath = "/sdcard/screenshot.png") => {
     const command = `adb shell screencap -p ${savePath}`;
@@ -19,3 +21,8 @@ const pullScreenshot = async (savePath = "/sdcard/screenshot.png", localPath = "
         console.error(`Error pulling screenshot: ${error}`);
     }
 };
+
+module.exports = {
+    takeScreenshot,
+    pullScreenshot
+}
